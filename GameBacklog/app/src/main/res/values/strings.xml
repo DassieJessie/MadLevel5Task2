@@ -5,6 +5,6 @@
     <!-- Strings used for fragments for navigation -->
     <string name="title">Title</string>
     <string name="platform">Platform</string>
-    <string name="release">Release: </string>
+    <string name="release">Release: \n%s %s %s</string>
 
 </resources>

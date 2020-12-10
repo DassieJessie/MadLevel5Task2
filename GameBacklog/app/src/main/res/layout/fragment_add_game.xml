@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/etYear"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.AddGameFragment">
@@ -26,11 +27,11 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Title" />
             </com.google.android.material.textfield.TextInputLayout>
-
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -38,12 +39,12 @@
                 android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPlatform"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Platform" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
 
 
             <LinearLayout
@@ -58,6 +59,7 @@
                     app:boxCornerRadiusTopEnd="0dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDay"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Day" />
@@ -71,12 +73,12 @@
                     app:boxCornerRadiusTopEnd="0dp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMonth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Month" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
 
 
                 <com.google.android.material.textfield.TextInputLayout
