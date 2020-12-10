@@ -12,7 +12,7 @@ import kotlinx.coroutines.withContext
 
 class GameViewModel(application: Application): AndroidViewModel(application) {
 
-    private val repository: GameRepository = GameRepository(application.applicationContext)
+    private val repository = GameRepository(application.applicationContext)
     private val mainScope = CoroutineScope(Dispatchers.Main)
 
     val games: LiveData<List<Game>> = repository.getAllGames()

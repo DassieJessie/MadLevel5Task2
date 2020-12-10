@@ -37,6 +37,7 @@ class AddGameFragment : Fragment() {
 
         fabYeet.setOnClickListener{
             onAddGame()
+            findNavController().popBackStack()
         }
     }
 

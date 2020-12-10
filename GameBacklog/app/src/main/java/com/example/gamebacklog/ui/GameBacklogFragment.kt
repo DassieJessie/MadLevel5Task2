@@ -1,6 +1,7 @@
 package com.example.gamebacklog.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -58,6 +59,7 @@ class GameBacklogFragment : Fragment() {
 
     private fun observeAddGame(){
         viewModel.games.observe(viewLifecycleOwner, Observer { games ->
+            Log.d("HELP", "$games")
             this.games.clear()
             this.games.addAll(games)
             gameAdapter.notifyDataSetChanged()
