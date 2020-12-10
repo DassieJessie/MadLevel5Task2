@@ -8,7 +8,7 @@ import com.example.gamebacklog.R
 import com.example.gamebacklog.model.Game
 import kotlinx.android.synthetic.main.item_game.view.*
 
-abstract class GameAdapter(private val games: List<Game>) :
+class GameAdapter(private val games: List<Game>) :
     RecyclerView.Adapter<GameAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
