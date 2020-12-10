@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">GameBacklog</string>
     <string name="btn_bin_title">Delete Games</string>
+    
     <!-- Strings used for fragments for navigation -->
+    <string name="title">Title</string>
+    <string name="platform">Platform</string>
+    <string name="release">Release: </string>
 
 </resources>
