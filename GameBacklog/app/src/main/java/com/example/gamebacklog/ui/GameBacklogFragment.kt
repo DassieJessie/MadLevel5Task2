@@ -39,7 +39,6 @@ class GameBacklogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initRV()
-        observeAddGame()
     }
 
     private fun initRV(){
@@ -54,6 +53,7 @@ class GameBacklogFragment : Fragment() {
 
         createItemTouchHelper().attachToRecyclerView(rvGames)
 
+        observeAddGame()
     }
 
     private fun observeAddGame(){

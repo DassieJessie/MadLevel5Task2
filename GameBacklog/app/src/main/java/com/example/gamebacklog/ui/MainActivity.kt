@@ -1,20 +1,29 @@
 package com.example.gamebacklog.ui
 
 import android.os.Bundle
+import android.util.Log
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.gamebacklog.R
+import com.example.gamebacklog.model.Game
+import com.example.gamebacklog.viewmodel.GameViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_add_game.*
+import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+
+    private val viewModel: GameViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +43,12 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        fabYeet.setOnClickListener{
-            navController.navigate(
-                R.id.gameBacklogFragment
-            )
-        }
+//        fabYeet.setOnClickListener{
+//            //onAddGame()
+//            navController.navigate(
+//                R.id.gameBacklogFragment
+//            )
+//        }
 
         fabToggler()
     }
@@ -58,7 +68,10 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.btnBin -> true
+            R.id.btnBin -> {
+                viewModel.deleteAllGames()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -68,12 +81,20 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _,       destination, _ ->
             if (destination.id in arrayOf(R.id.addGameFragment)) {
                 fab.hide()
-                fabYeet.show()
 
             } else {
-                fabYeet.hide()
                 fab.show()
             }
         }
     }
+
+//    private fun onAddGame(){
+//        val title = etTitle.text.toString()
+//        val platform = etPlatform.text.toString()
+//        val date = LocalDate.of(etYear.text.toString().toInt(), etMonth.text.toString().toInt(), etDay.text.toString().toInt())
+//
+//        //update variabele maar 1x
+//        Log.d("GAME", "$title $platform $date")
+//        viewModel.insertGame(Game(title, platform, date))
+//    }
 }
