@@ -13,32 +13,26 @@ import kotlinx.coroutines.withContext
 class GameViewModel(application: Application): AndroidViewModel(application) {
 
     private val repository = GameRepository(application.applicationContext)
-    private val mainScope = CoroutineScope(Dispatchers.Main)
+    private val ioScope = CoroutineScope(Dispatchers.IO)
 
     val games: LiveData<List<Game>> = repository.getAllGames()
 
     fun insertGame(game:Game){
-        mainScope.launch {
-            withContext(Dispatchers.IO){
-                repository.insertGame(game)
-            }
-        }
+       ioScope.launch {
+           repository.insertGame(game)
+       }
     }
 
     fun deleteGame(game:Game){
-        mainScope.launch {
-            withContext(Dispatchers.IO){
-                repository.deleteGame(game)
-            }
+        ioScope.launch {
+            repository.deleteGame(game)
         }
     }
 
     fun deleteAllGames(){
-        mainScope.launch {
-            withContext(Dispatchers.IO){
-                repository.deleteAllGames()
-            }
-        }
+       ioScope.launch {
+           repository.deleteAllGames()
+       }
     }
 
 
